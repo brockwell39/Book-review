@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  display:center;
+  margin:auto;
+  width:50%;
+  margin-bottom: 25px;
+}
+th, td {
+  padding: 5px;
+}
+td{
+  text-align:left;
+}
+
+</style>
+</head>
+
+<h1>{{s}}</h1>
+
+
+<div class = container>
+  <form id="form" action="/" method="post" >
+      <div class="form-group">
+          <input autocomplete="off" id="demo" autofocus class="form-control" name="search" placeholder="Search for books by ISBN, title or author" type="text">
+        </div>
+        <button  onclick="myfunction()" class="btn btn-dark" id="he" type="submit">Search !</button>
+      </form>
+</div>
+
+
+<div class = container>
+  <h1>{{p}}</h1>
+  <h1>{{i}}</h1>
+    <table>
+    {% for row in isbn %}
+    <tr><td><a href="{{ url_for('books', book_id=row.book_id) }}">{{ row.title }}</a></td><td>{{ row["author"] }}</td><td>{{ row["isbn"] }}</td></tr>
+    {% endfor %}
+    </table>
+  <h1>{{t}}</h1>
+    <table>
+      {% for row in titlelist %}
+      <tr><td><a href="{{ url_for('books', book_id=row.book_id)}}">{{ row.title }}</a></td><td>{{ row.author }}</td><td>{{ row.isbn }}</td></tr>
+      {% endfor %}
+    </table>
+  <h1>{{a}}</h1>
+    <table>
+      {% for row in authorlist %}
+      <tr><td><a href="{{ url_for('books', book_id=row.book_id)}}">{{ row["title"] }}</a></td><td>{{ row["author"] }}</td><td>{{ row["isbn"] }}</td></tr>
+      {% endfor %}
+    </table>
+</div>
+
+
+{% endblock %}

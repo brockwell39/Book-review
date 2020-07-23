@@ -1,0 +1,61 @@
+body {
+  background-color: orange;
+  font-family: sans-serif;
+  text-align: center;
+  display: center;
+}
+
+body .form-group
+{
+    /* center form controls */
+    display: center;
+    /* override Bootstrap's 100% width for form controls */
+    width: 100%;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: center;
+
+    margin: auto;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: 100%;
+}
+
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+.navbar {margin-bottom: 50px;}
+
+main .table {
+  border: 1px solid black;
+  display:center;
+  margin:auto;
+  width:50%;
+  margin-bottom: 25px;
+}
+main .th, .td {
+  padding: 5px;
+}
+main .td{
+  text-align:left;
+}
+a {
+  color: black;
+  text-decoration: underline;
+}
+a.nav-link,.navbar-brand {
+  text-decoration: none;
+}
+a:hover, a:active, a:focus {
+  color:#c33;
+}

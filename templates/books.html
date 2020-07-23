@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+  display:center;
+  margin:auto;
+  width:75%;
+  margin-bottom: 25px;
+  font-size: large;
+}
+th, td {
+  padding: 5px;
+}
+td{
+  text-align:center;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+}
+a:hover, a:active, a:focus {
+  color:#c33;
+}
+</style>
+</head>
+
+
+<h1>{{ book.title }}</h1>
+<h2>Written by {{ book.author}} in {{book.year}}<h2>
+<h2>ISBN {{book.isbn}}<h2>
+
+  <div class = container>
+    <table>
+      <tr><th>Review</th><th>Rating</th></tr>
+      {% for row in reviews %}
+      <tr><td>{{row.review}}</td><td>{{row.rating}}</td></tr>
+      {% endfor %}
+      <tr><td>Average rating</td><td>{{average}}</td></tr>
+      <tr><td>Goodreads average rating</td><td>{{grating}}</td></tr>
+      <tr><td>Goodreads rating count</td><td>{{count}}</td></tr>
+      </table>
+  </div>
+
+<div class = container>
+  <form id="review" action="/books/{{book.book_id}}" method="post" >
+        <div class="form-group">
+          <textarea class="form-control" id="review" name="review" placeholder="Type review here" rows="3"></textarea>
+        </div>
+        <label for="inlineRadioOptions">Rating 1-5</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+          <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+          <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+          <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+          <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5">
+          <label class="form-check-label" for="inlineRadio5">5</label>
+        </div>
+      <button class="btn btn-dark" id="he" type="submit">Submit review</button>
+    </form>
+  </div>
+
+
+
+{% endblock %}

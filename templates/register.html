@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<p>To register for Book REVS and be able to view and create book reviews please enter a username and password<p>
+<div class="container">
+  <form id="form" action="/register" method="post" >
+      <div class="form-group">
+          <input autocomplete="off" id="demo" autofocus class="form-control" name="username" placeholder="Username" type="text">
+      </div>
+      <div class="form-group">
+          <input class="form-control" name="password" placeholder="Password" type="password">
+          </div>
+      <div class="form-group">
+          <input class="form-control" name="confirmation" placeholder="Re-Enter Password" type="password" >
+      </div>
+      <button  onclick="myfunction()" class="btn btn-dark" id="he" type="submit">Register</button>
+  </form>
+</div>  
+
+{% endblock %}
